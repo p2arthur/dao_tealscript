@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "generate-client": "algokitgen generate -a contracts/artifacts/TealscriptDemo.arc32.json -o contracts/clients/TealscriptDemoClient.ts",
-    "compile-contract": "tealscript contracts/tealscript-demo.algo.ts contracts/artifacts",
-    "generate-components": "algokit-generate-component contracts/artifacts/TealscriptDemo.arc32.json contracts/artifacts/components",
+    "generate-client": "algokitgen generate -a contracts/artifacts/Dao.arc32.json -o contracts/clients/DaoClient.ts",
+    "compile-contract": "tealscript contracts/dao.algo.ts contracts/artifacts",
+    "generate-components": "algokit-generate-component contracts/artifacts/Dao.arc32.json contracts/artifacts/components",
     "build": "npm run compile-contract && npm run generate-client",
     "test": "npm run build && jest",
     "lint": "eslint . --ext .ts",
