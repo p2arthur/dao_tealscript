@@ -3,6 +3,7 @@ import { algorandFixture } from '@algorandfoundation/algokit-utils/testing';
 import { DaoClient } from '../contracts/clients/DaoClient';
 import { algos, getOrCreateKmdWalletAccount, microAlgos } from '@algorandfoundation/algokit-utils';
 import algosdk, { Kmd } from 'algosdk';
+import exp from 'constants';
 
 const fixture = algorandFixture();
 
@@ -34,5 +35,17 @@ describe('TealscriptDemo', () => {
   test('getProposal', async () => {
     const proposalFromMethod = await appClient.getProposal({});
     expect(proposalFromMethod.return?.valueOf()).toBe(proposal);
+  });
+
+  test('vote & getVotes', async () => {
+    await appClient.vote({ inFavor: true });
+    const votes = await appClient.getVotes({});
+
+    expect(votes.return?.valueOf()).toEqual([BigInt(1), BigInt(1)]);
+
+    await appClient.vote({ inFavor: false });
+    const votesAfter = await appClient.getVotes({});
+
+    expect(votesAfter.return?.valueOf()).toEqual([BigInt(2), BigInt(1)]);
   });
 });
