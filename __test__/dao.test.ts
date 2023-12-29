@@ -96,7 +96,7 @@ describe('Dao', () => {
     await algokit.sendTransaction({ from: sender, transaction: registeredAsaOptInTxn }, algod);
 
     await appClient.register(
-      { registeredASA },
+      { registeredAsa: registeredASA },
       {
         sender,
         sendParams: {
@@ -127,6 +127,6 @@ describe('Dao', () => {
     await appClient.vote({ inFavor: false, registeredASA }, { sender });
 
     const votesAfter2 = await appClient.getVotes({});
-    expect(votesAfter2.return?.valueOf()).toEqual([BigInt(1), BigInt(2)]);
+    expect(votesAfter2.return?.valueOf()).toEqual([BigInt(2), BigInt(1)]);
   });
 });

@@ -30,7 +30,7 @@
       "name": "register",
       "args": [
         {
-          "name": "registeredASA",
+          "name": "registeredAsa",
           "type": "asset",
           "desc": ""
         }
@@ -71,7 +71,7 @@
       }
     },
     {
-      "name": "getRegisteredASA",
+      "name": "getRegisteredAsa",
       "args": [],
       "desc": "",
       "returns": {
